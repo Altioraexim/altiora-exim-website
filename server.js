@@ -76,8 +76,10 @@ app.use(morgan('combined'));
 // Body parsing
 // Explicit static mounts so localhost:3000 resolves /assets exactly like Live Server.
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 // Serve main static files from repo root (so /, /gallery.html, /certificate.html load correctly)
+app.use(express.static(__dirname));
 app.use(express.static(__dirname));
 
 app.use(express.json({ limit: '10mb' }));
