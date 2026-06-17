@@ -2143,3 +2143,15 @@ body.certificate-page #google_translate_element select option {
   }
 }
 
+@media (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+}
