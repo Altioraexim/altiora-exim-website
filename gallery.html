@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery | Altiora Exim</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="gallery-page">
+  <header class="site-header">
+        <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="assets/altioraeximlogo-circle.png" alt="Altiora Exim logo" class="logo" />
+        <div>
+          <span class="brand-name">ALTIORA EXIM</span>
+        </div>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="index.html#products">Products</a>
+        <a href="gallery.html" class="active">Gallery</a>
+        <a href="index.html#about">About</a>
+        <a href="certificate.html">Certificates</a>
+        <a href="index.html#contact">Contact</a>
+        <div class="translate-wrapper" aria-label="Language selector">
+          <div class="translate-button" aria-hidden="true">
+            <span class="translate-icon">
+              <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                <path fill="#4285F4" d="M24 9.5c3.9 0 7.5 1.4 10.3 4.1l7.7-7.7C36.3 1.9 30.4 0 24 0 14.5 0 6.3 5.7 2.5 14.1l8.9 6.9C13.8 15 18.4 9.5 24 9.5z"/>
+                <path fill="#34A853" d="M46.5 24.5c0-1.4-.1-2.8-.4-4.1H24v8h12.7c-.5 2.7-2 5-4.3 6.6l6.8 5.3C43.5 36.8 46.5 30.9 46.5 24.5z"/>
+                <path fill="#FBBC05" d="M10.1 28.9c-.5-1.5-.8-3.1-.8-4.9s.3-3.4.8-4.9L1.2 13.2C-.7 16.4-.7 20.2 1.2 23.4l8.9 5.5z"/>
+                <path fill="#EA4335" d="M24 48c6.4 0 12.3-2.1 17-5.7l-6.8-5.3c-2 1.3-4.5 2-7.8 2-5.6 0-10.4-3.6-12.1-8.6l-8.9 6.9C6.3 42.3 14.5 48 24 48z"/>
+              </svg>
+            </span>
+            <span class="translate-label">Select Language</span>
+            <span class="translate-arrow">▼</span>
+          </div>
+          <div id="google_translate_element"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <script>
+      // GitHub Pages-safe asset helper for this page
+      (function () {
+        function bbAssetUrl(relativePath) {
+          if (!relativePath) return relativePath;
+          if (/^(?:[a-z]+:)?\/\//i.test(relativePath)) return relativePath;
+          if (relativePath.startsWith('/')) return relativePath;
+          while (relativePath.startsWith('./')) relativePath = relativePath.slice(2);
+          const parts = window.location.pathname.split('/').filter(Boolean);
+          const first = parts.length ? parts[0] : '';
+          const repo = first && !first.includes('.') ? first : '';
+          const base = repo ? `/${repo}/` : '/';
+          return base.replace(/\/$/, '/') + relativePath.replace(/^\//, '');
+        }
+        window.bbAssetUrl = window.bbAssetUrl || bbAssetUrl;
+      })();
+    </script>
+
+    <!-- Gallery Header -->
+
+    <section class="section gallery-header-section" style="background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%); padding: 3rem 0;">
+      <div class="container">
+        <div class="section-header animate-on-scroll" style="text-align: center;">
+          <h2 style="font-size: 3rem; margin-bottom: 1rem;">Our Gallery</h2>
+          <p style="font-size: 1.1rem; color: #6b7280; max-width: 600px; margin: 0 auto;">Explore our premium collection of handcrafted products from artisans across India. Each piece represents authentic craftsmanship and quality suitable for international markets.</p>
+        </div>
+      </div>
+    </section>
+
+      <style>
+      .gallery-full-width{
+        width: 100vw;
+        max-width: none;
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+        padding-left: 0;
+        padding-right: 0;
+      }
+      </style>
+
+
+    <section class="section gallery-full-section">
+      <!-- Full width gallery: avoid .container max-width/padding constraints -->
+        <div class="gallery-full-width" style="width:100%;max-width:none;">
+        <!-- Gallery set pagination (4 images per set: 1..4 of each category) -->
+        <div class="gallery-set-wrap">
+          <div class="gallery-grid-large animate-on-scroll" id="gallerySetGrid"></div>
+
+
+          <div class="gallery-pagination" aria-label="Gallery pagination" style="display:flex;gap:1rem;align-items:center;">
+            <button type="button" class="gallery-page-btn" id="galleryPrev" aria-label="Previous set">‹</button>
+            <div class="gallery-page-indicator" aria-live="polite" id="galleryIndicator">1 / 1</div>
+            <button type="button" class="gallery-page-btn" id="galleryNext" aria-label="Next set">›</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery set data -->
+    <script>
+      // 4 images in first row + 4 images in second row (total 8 images) per slide.
+      // We keep 5 slides in required sequence: Fabric, Cover, Rugs, Pottery, Brass.
+      const gallerySets = [
+        {
+          label: "Fabric",
+          images: [
+            "assets/gallery/fabric1.jpeg",
+            "assets/gallery/fabric2.jpeg",
+            "assets/gallery/fabric3.jpeg",
+            "assets/gallery/fabric4.jpeg",
+            "assets/gallery/fabric5.jpeg",
+            "assets/gallery/fabric6.jpeg",
+            "assets/gallery/fabric7.jpeg",
+            "assets/gallery/fabric8.jpeg"
+          ]
+        },
+        {
+          label: "Cover",
+          images: [
+            "assets/gallery/cover1.jpeg",
+            "assets/gallery/cover2.jpeg",
+            "assets/gallery/cover3.jpeg",
+            "assets/gallery/cover4.jpeg",
+            "assets/gallery/cover5.jpeg",
+            "assets/gallery/cover6.jpeg",
+            "assets/gallery/cover7.jpeg",
+            "assets/gallery/cover8.jpeg"
+          ]
+        },
+        {
+          label: "Rugs",
+          images: [
+            "assets/gallery/rugs1.jpeg",
+            "assets/gallery/rugs2.jpeg",
+            "assets/gallery/rugs3.jpeg",
+            "assets/gallery/rugs4.jpeg",
+            "assets/gallery/rugs5.jpeg",
+            "assets/gallery/rugs6.jpeg",
+            "assets/gallery/rugs7.jpeg",
+            "assets/gallery/rugs8.jpeg"
+          ]
+        },
+        {
+          label: "Pottery",
+          images: [
+            "assets/gallery/pottery1.jpeg",
+            "assets/gallery/pottery2.jpeg",
+            "assets/gallery/pottery3.jpeg",
+            "assets/gallery/pottery4.jpeg",
+            "assets/gallery/pottery5.jpeg",
+            "assets/gallery/pottery6.jpeg",
+            "assets/gallery/pottery7.jpeg",
+            "assets/gallery/pottery8.jpeg"
+          ]
+        },
+        {
+          label: "Brass",
+          images: [
+            "assets/gallery/brass1.jpeg",
+            "assets/gallery/brass2.jpeg",
+            "assets/gallery/brass3.jpeg",
+            "assets/gallery/brass4.jpeg",
+            "assets/gallery/brass5.jpeg",
+            "assets/gallery/brass6.jpeg",
+            "assets/gallery/brass7.jpeg",
+            "assets/gallery/brass8.jpeg"
+          ]
+        }
+      ];
+
+
+      const grid = document.getElementById("gallerySetGrid");
+      const indicator = document.getElementById("galleryIndicator");
+      const prevBtn = document.getElementById("galleryPrev");
+      const nextBtn = document.getElementById("galleryNext");
+
+      let setIndex = 0;
+
+      function renderSet(i) {
+        const set = gallerySets[i];
+        grid.innerHTML = "";
+        set.images.forEach((src, idx) => {
+          const item = document.createElement("div");
+          item.className = "gallery-item-large";
+          const resolvedSrc = window.bbAssetUrl ? window.bbAssetUrl(src) : src;
+          item.innerHTML = `<img src="${resolvedSrc}" alt="${set.label} ${idx + 1}" loading="lazy" />`;
+          grid.appendChild(item);
+        });
+        indicator.textContent = `${i + 1} / ${gallerySets.length}`;
+      }
+
+
+      function clampIndex(i) {
+        if (i < 0) return gallerySets.length - 1;
+        if (i >= gallerySets.length) return 0;
+        return i;
+      }
+
+      prevBtn.addEventListener("click", () => {
+        setIndex = clampIndex(setIndex - 1);
+        renderSet(setIndex);
+      });
+
+      nextBtn.addEventListener("click", () => {
+        setIndex = clampIndex(setIndex + 1);
+        renderSet(setIndex);
+      });
+
+      // Initial
+      renderSet(setIndex);
+    </script>
+
+
+    <!-- CTA Section -->
+    <section class="section" style="background: #f9fafb; text-align: center;">
+      <div class="container">
+        <h2 style="font-size: 2rem; margin-bottom: 1rem; color: #1f2937;">Interested in Our Products?</h2>
+        <p style="font-size: 1.1rem; color: #6b7280; margin-bottom: 2rem;">Contact us for wholesale inquiries, bulk orders, or custom collections.</p>
+        <a href="index.html#contact" class="button primary">Get in Touch</a>
+      </div>
+    </section>
+  </main>
+
+  <a class="whatsapp-button" href="https://wa.me/919274249420" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <span class="whatsapp-icon">💬</span>
+    <span>WhatsApp</span>
+  </a>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Altiora Exim. All rights reserved.</p>
+      <p>Premium Handicraft Exports | Global Quality Standards</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+      <style>
+
+
+    .gallery-set-wrap {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .gallery-grid-large {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 1024px) {
+      .gallery-grid-large {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .gallery-grid-large {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-grid-large {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .gallery-item-large {
+      overflow: hidden;
+      border-radius: 12px;
+      background: #f9fafb;
+      aspect-ratio: 1;
+      border: 1px solid #e5e7eb;
+      transition: all 0.3s ease;
+    }
+
+    .gallery-item-large img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item-large:hover {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      transform: translateY(-4px);
+    }
+
+    .gallery-item-large:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-pagination {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    .gallery-page-btn {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.7);
+      color: var(--primary);
+      font-size: 1.6rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
+
+    .gallery-page-btn:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 26px rgba(5,150,105,0.18);
+    }
+
+    .gallery-page-indicator {
+      font-weight: 800;
+      color: var(--text);
+      min-width: 5.5rem;
+      text-align: center;
+    }
+  </style>
+</body>
+</html>
+

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Altiora Exim | Premium Handicraft Exporters</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="preloader">
+    <div class="preloader-content">
+      <div class="spinner"></div>
+      <p>Loading...</p>
+    </div>
+  </div>
+
+  <main>
+
+    <script>
+      // Robust asset resolver (localhost + GitHub Pages sub-path)
+      (function () {
+        function bbAssetUrl(relativePath) {
+          if (!relativePath) return relativePath;
+          if (/^(?:[a-z]+:)?\/\//i.test(relativePath)) return relativePath;
+          // Already absolute path from domain
+          if (relativePath.startsWith('/')) return relativePath;
+
+          // Normalize leading ./
+          while (relativePath.startsWith('./')) relativePath = relativePath.slice(2);
+
+          // If deployed under a repo sub-path, the first path segment is the repo name.
+          const parts = window.location.pathname.split('/').filter(Boolean);
+          const first = parts.length ? parts[0] : '';
+          const repo = first && !first.includes('.') ? first : '';
+          const base = repo ? `/${repo}/` : '/';
+
+          return base.replace(/\/$/, '/') + relativePath.replace(/^\//, '');
+        }
+
+        window.bbAssetUrl = window.bbAssetUrl || bbAssetUrl;
+      })();
+    </script>
+
+    <section class="hero-slider" id="home" aria-label="Hero slider">
+
+      <div class="slider-header">
+      <div class="container header-inner" style="min-height: 90px;">
+
+          <a href="#home" class="brand">
+            <img data-asset="assets/altioraeximlogo-circle.png" src="" alt="Altiora Exim logo" class="logo" id="bbHomeLogo" />
+            <div>
+
+              <span class="brand-name">ALTIORA EXIM</span>
+            </div>
+          </a>
+
+          <nav class="main-nav" aria-label="Primary navigation">
+            <!-- Google Translate widget is injected into #google_translate_element -->
+
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="#about">About</a>
+            <a href="certificate.html">Certificates</a>
+            <a href="#contact">Contact</a>
+            <a href="#contact" style="display:none" aria-hidden="true">Contact</a>
+
+            <div class="translate-wrapper" aria-label="Language selector">
+              <div class="translate-button" aria-hidden="true">
+                <span class="translate-icon">
+                  <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                    <path fill="#4285F4" d="M24 9.5c3.9 0 7.5 1.4 10.3 4.1l7.7-7.7C36.3 1.9 30.4 0 24 0 14.5 0 6.3 5.7 2.5 14.1l8.9 6.9C13.8 15 18.4 9.5 24 9.5z"/>
+                    <path fill="#34A853" d="M46.5 24.5c0-1.4-.1-2.8-.4-4.1H24v8h12.7c-.5 2.7-2 5-4.3 6.6l6.8 5.3C43.5 36.8 46.5 30.9 46.5 24.5z"/>
+                    <path fill="#FBBC05" d="M10.1 28.9c-.5-1.5-.8-3.1-.8-4.9s.3-3.4.8-4.9L1.2 13.2C-.7 16.4-.7 20.2 1.2 23.4l8.9 5.5z"/>
+                    <path fill="#EA4335" d="M24 48c6.4 0 12.3-2.1 17-5.7l-6.8-5.3c-2 1.3-4.5 2-7.8 2-5.6 0-10.4-3.6-12.1-8.6l-8.9 6.9C6.3 42.3 14.5 48 24 48z"/>
+                  </svg>
+                </span>
+                <span class="translate-label">Select Language</span>
+                <span class="translate-arrow">▼</span>
+              </div>
+              <div id="google_translate_element"></div>
+            </div>
+          </nav>
+          <div class="hero-right">
+
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-content" aria-hidden="false">
+
+        <div class="image-slider full-page-slider">
+          <div class="slider-container" id="sliderContainer">
+            <div class="slide active">
+              <img data-asset="assets/slider/fabric.png" src="" alt="Premium Handicraft 1" loading="eager" />
+              <div class="slide-label">Hand Block Printed Fabric</div>
+            </div>
+
+            <div class="slide">
+              <img data-asset="assets/slider/cover.png" src="" alt="Handicraft Collection" />
+              <div class="slide-label">Handmade Pillowcase</div>
+            </div>
+            <div class="slide">
+              <img data-asset="assets/slider/carpet.png" src="" alt="Rugs & Carpets" />
+              <div class="slide-label">Handmade Rugs & Carpets Collection</div>
+            </div>
+            <div class="slide">
+              <img data-asset="assets/slider/pottery.png" src="" alt="Premium Handicraft 4" />
+              <div class="slide-label">Handpainted and Hand-Glazed Pottery Items</div>
+            </div>
+            <div class="slide">
+              <img data-asset="assets/slider/brass.png" src="" alt="Premium Handicraft 5" />
+              <div class="slide-label">Handcrafted Brass Products</div>
+            </div>
+          </div>
+
+
+          <div class="slider-controls">
+            <button type="button" id="prevSlide" aria-label="Previous slide">‹</button>
+            <button type="button" id="nextSlide" aria-label="Next slide">›</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<section class="section about" id="products">
+      <div class="container">
+        <div class="section-header">
+          <h2>Our Products</h2>
+        </div>
+
+        <div class="products-grid animate-on-scroll">
+          <article class="product-card product-category" role="button" tabindex="0" aria-label="Open Fabric Collection"
+            data-gallery-category="fabric" data-gallery-title="Fabric Collection">
+            <div class="product-image-wrapper">
+              <img data-asset="assets/products/fabric.jpg" src="" alt="Hand Block Printed Fabric" class="product-image" />
+            </div>
+            <h3>Hand Block Print Fabric</h3>
+          </article>
+
+          <article class="product-card product-category" role="button" tabindex="0" aria-label="Open Cover Collection"
+            data-gallery-category="cover" data-gallery-title="Cover Collection">
+            <div class="product-image-wrapper">
+              <img data-asset="assets/products/cover.jpeg" src="" alt="Handmade pillow cover" class="product-image" />
+            </div>
+            <h3>Handmade Pillow Cover</h3>
+          </article>
+
+          <article class="product-card product-category" role="button" tabindex="0" aria-label="Open Rugs Collection"
+            data-gallery-category="rugs" data-gallery-title="Rugs Collection">
+            <div class="product-image-wrapper">
+              <img data-asset="assets/products/carpet.avif" src="" alt="Carpets & Rugs" class="product-image" />
+            </div>
+            <h3>Handmade Carpets & Rugs</h3>
+          </article>
+
+          <article class="product-card product-category" role="button" tabindex="0" aria-label="Open Pottery Collection"
+            data-gallery-category="pottery" data-gallery-title="Pottery Collection">
+            <div class="product-image-wrapper">
+              <img data-asset="assets/products/pottery.webp" src="" alt="Hand Painted and Hand Glazed Pottery items" class="product-image" />
+            </div>
+            <h3>Hand Painted and Hand Glazed Pottery Item</h3>
+          </article>
+
+          <article class="product-card product-category" role="button" tabindex="0" aria-label="Open Brass Collection"
+            data-gallery-category="brass" data-gallery-title="Brass Collection">
+            <div class="product-image-wrapper">
+              <img data-asset="assets/products/Handmade Brass Statues.jpg" src="" alt="Handcrafted Brass items" class="product-image" />
+            </div>
+            <h3>Handcrafted Brass items</h3>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section class="section gallery-preview-section">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <h2>Gallery</h2>
+        </div>
+
+        <div class="gallery-preview-grid-wrap">
+          <div class="gallery-grid gallery-grid-preview animate-on-scroll" aria-label="Gallery preview">
+            <!-- Row-wise 5 images (one per category) -->
+            <div class="gallery-item">
+              <img data-asset="assets/gallery/fabric1.jpeg" src="" alt="Fabric 1" />
+            </div>
+            <div class="gallery-item">
+              <img data-asset="assets/gallery/cover1.jpeg" src="" alt="Cover 1" />
+            </div>
+            <div class="gallery-item">
+              <img data-asset="assets/gallery/rugs1.jpeg" src="" alt="Rugs 1" />
+            </div>
+            <div class="gallery-item">
+              <img data-asset="assets/gallery/pottery1.jpeg" src="" alt="Pottery 1" />
+            </div>
+            <div class="gallery-item">
+              <img data-asset="assets/gallery/brass1.jpeg" src="" alt="Brass 1" />
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-cta animate-on-scroll">
+          <a href="gallery.html" class="button primary">View Full Gallery</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ABOUT SECTION -->
+<section id="about" class="section about-section">
+
+      <div class="container about-grid animate-on-scroll">
+        <div class="about-copy">
+          <h2>About Altiora Exim</h2>
+          <p>At ALTIORA EXIM, we are growing with a vision to not only export products, but also export trust. Our mission is to bring authentic Indian products & its diverse culture to an international market.</p>
+
+          <p>We work with skilled artisans & reliable suppliers to deliver unique products with best quality to our global customers. With a strong focus on professionalism & efficiency, we ensure timely & hassle free delivery every time.</p>
+
+          <p>As a growing company, our goal is to build long-lasting partnerships & become a trusted name in global market. At ALTIORA EXIM, customer satisfaction is always our top priority.</p>
+
+        
+            
+          <ul class="about-list">
+            <li>Quality verified artisan products</li>
+            <li>Safe export-ready packaging</li>
+            <li>Dedicated customer support</li>
+          </ul>
+        </div>
+
+        <figure class="about-founder">
+          <img src="assets/ourteam/founder.png" alt="Mihir Chaudhari, Proprietor" class="about-founder-image" />
+          <figcaption class="about-founder-caption">
+            <div class="about-founder-caption-text">Mihir Chaudhari<br/> Proprietor<br/> </div>
+          </figcaption>
+        </figure>
+
+
+
+      </div>
+    </section>
+
+
+    <!-- CERTIFICATES SECTION -->
+    <section id="certificates" class="section certificates-section">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <h2>Certifications</h2>
+        </div>
+        <div class="certificates-grid animate-on-scroll">
+          <img data-asset="assets/certificates/msmelogo.png" src="" alt="MSME Logo" class="home-certificate-logo" />
+          <img data-asset="assets/certificates/newGST.png" src="" alt="GST Logo" class="home-certificate-logo home-gst-logo" />
+          <img data-asset="assets/certificates/newIEC.png" src="" alt="IEC Logo" class="home-certificate-logo home-iec-logo" />
+
+
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section contact-section">
+      <div class="container contact-premium animate-on-scroll">
+        <div class="contact-premium-left">
+          <div class="contact-subtitle">Contact Us Now</div>
+          <h2 class="contact-premium-title">We're here to answer your questions.</h2>
+          <p class="contact-premium-desc">Have a question, suggestion, or just want to say hi? We're here and happy to hear from you!</p>
+
+          <div class="contact-premium-info" role="list">
+            <div class="contact-premium-row" role="listitem">
+              <div class="contact-premium-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 22s8-4.5 8-12A8 8 0 0 0 4 10c0 7.5 8 12 8 12Z" stroke="#ffffff" stroke-width="2"/>
+                  <path d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" fill="#ffffff"/>
+                </svg>
+              </div>
+              <div class="contact-premium-row-text">
+                <div class="contact-premium-row-label">Office Location</div>
+                <div class="contact-premium-row-value">Bapupura, Mansa, Gandhinagar 382845</div>
+              </div>
+            </div>
+
+            <div class="contact-premium-row" role="listitem">
+              <div class="contact-premium-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4 6h16v12H4V6Z" stroke="#ffffff" stroke-width="2"/>
+                  <path d="m4 7 8 6 8-6" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="contact-premium-row-text">
+                <div class="contact-premium-row-label">Mail Us At</div>
+                <div class="contact-premium-row-value">
+                  <a href="mailto:altioraexim@gmail.com">altioraexim@gmail.com</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-premium-row" role="listitem">
+              <div class="contact-premium-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.9 19.9 0 0 1-8.7-3.1 19.6 19.6 0 0 1-6-6A19.9 19.9 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 10.6a16 16 0 0 0 6 6l2.2-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6A2 2 0 0 1 22 16.9Z" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="contact-premium-row-text">
+                <div class="contact-premium-row-label">Call Us Directly</div>
+                <div class="contact-premium-row-value">
+                  <a href="tel:+919274249420">+91 9274249420</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-premium-right">
+          <div class="contact-premium-form-card" aria-label="Get In Touch form">
+            <h3 class="contact-form-title">Get In Touch</h3>
+            <p class="contact-form-desc">We'll get back to you as soon as possible.</p>
+
+            <!-- Keeping existing functionality: no submit logic was present originally -->
+            <div class="contact-form-fields">
+              <div class="contact-field">
+                <label class="contact-label" for="contact-name">Name</label>
+                <input id="contact-name" class="contact-input" type="text" name="name" placeholder="Enter your name" aria-label="Your name" />
+              </div>
+
+              <div class="contact-field">
+                <label class="contact-label" for="contact-email">Email</label>
+                <input id="contact-email" class="contact-input" type="email" name="email" placeholder="Enter email" aria-label="Email" />
+              </div>
+
+              <div class="contact-field">
+                <label class="contact-label" for="contact-phone">Phone</label>
+                <input id="contact-phone" class="contact-input" type="tel" name="phone" placeholder="Enter phone number" aria-label="Phone number" />
+              </div>
+
+              <div class="contact-field">
+                <label class="contact-label" for="contact-message">Message</label>
+                <textarea id="contact-message" class="contact-input contact-textarea" name="message" placeholder="Write your message" rows="5" aria-label="Message"></textarea>
+              </div>
+
+              <button type="button" class="contact-send-btn button" aria-label="Send Message">Send Message</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <a class="whatsapp-button" href="https://wa.me/919274249420" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <span class="whatsapp-icon">💬</span>
+    <span>WhatsApp</span>
+  </a>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Altiora Exim. All rights reserved.</p>
+      <p>Premium Handicraft Exports | Global Quality Standards</p>
+    </div>
+  </footer>
+
+  <script src="gallery-data.js"></script>
+  <script src="script.js"></script>
+
+  <script>
+    // Set all data-asset images once bbAssetUrl exists (works with/without gallery-data.js)
+    (function () {
+      const fill = (img) => {
+        const rel = img.getAttribute('data-asset');
+        if (!rel) return;
+        if (window.bbAssetUrl) img.src = window.bbAssetUrl(rel);
+        else img.src = rel;
+      };
+
+      document.querySelectorAll('img[data-asset]').forEach(fill);
+
+      const logo = document.getElementById('bbHomeLogo');
+      if (logo) fill(logo);
+    })();
+  </script>
+
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
+
+
+

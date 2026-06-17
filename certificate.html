@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certificates | Altiora Exim</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="certificate-page">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="assets/altioraeximlogo-circle.png" alt="Altiora Exim logo" class="logo" />
+        <div>
+          <span class="brand-name">ALTIORA EXIM</span>
+        </div>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="index.html#products">Products</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="index.html#about">About</a>
+        <a href="certificate.html" class="active">Certificates</a>
+        <a href="index.html#contact">Contact</a>
+        <div class="translate-wrapper" aria-label="Language selector">
+          <div class="translate-button" aria-hidden="true">
+            <span class="translate-icon">
+              <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                <path fill="#4285F4" d="M24 9.5c3.9 0 7.5 1.4 10.3 4.1l7.7-7.7C36.3 1.9 30.4 0 24 0 14.5 0 6.3 5.7 2.5 14.1l8.9 6.9C13.8 15 18.4 9.5 24 9.5z"/>
+                <path fill="#34A853" d="M46.5 24.5c0-1.4-.1-2.8-.4-4.1H24v8h12.7c-.5 2.7-2 5-4.3 6.6l6.8 5.3C43.5 36.8 46.5 30.9 46.5 24.5z"/>
+                <path fill="#FBBC05" d="M10.1 28.9c-.5-1.5-.8-3.1-.8-4.9s.3-3.4.8-4.9L1.2 13.2C-.7 16.4-.7 20.2 1.2 23.4l8.9 5.5z"/>
+                <path fill="#EA4335" d="M24 48c6.4 0 12.3-2.1 17-5.7l-6.8-5.3c-2 1.3-4.5 2-7.8 2-5.6 0-10.4-3.6-12.1-8.6l-8.9 6.9C6.3 42.3 14.5 48 24 48z"/>
+              </svg>
+            </span>
+            <span class="translate-label">Select Language</span>
+            <span class="translate-arrow">▼</span>
+          </div>
+          <div id="google_translate_element"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <script>
+      // GitHub Pages-safe asset helper for this page
+      (function () {
+        function bbAssetUrl(relativePath) {
+          if (!relativePath) return relativePath;
+          if (/^(?:[a-z]+:)?\/\//i.test(relativePath)) return relativePath;
+          if (relativePath.startsWith('/')) return relativePath;
+          while (relativePath.startsWith('./')) relativePath = relativePath.slice(2);
+          const parts = window.location.pathname.split('/').filter(Boolean);
+          const first = parts.length ? parts[0] : '';
+          const repo = first && !first.includes('.') ? first : '';
+          const base = repo ? `/${repo}/` : '/';
+          return base.replace(/\/$/, '/') + relativePath.replace(/^\//, '');
+        }
+        window.bbAssetUrl = window.bbAssetUrl || bbAssetUrl;
+      })();
+    </script>
+
+    <script>
+      // Set all data-asset images once bbAssetUrl exists (same strategy as index.html)
+      (function () {
+        const fill = (img) => {
+          const rel = img.getAttribute('data-asset');
+          if (!rel) return;
+          if (window.bbAssetUrl) img.src = window.bbAssetUrl(rel);
+          else img.src = rel;
+        };
+
+        document.querySelectorAll('img[data-asset]').forEach(fill);
+      })();
+    </script>
+
+    <!-- Certificate Header -->
+
+    <section class="section certificate-header-section" style="background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%); padding: 2.4rem 0;">
+      
+      <div class="container">
+        <div class="section-header animate-on-scroll" style="text-align: center;">
+          <h2 style="font-size: 3rem; margin-bottom: 1rem;">Our Certifications</h2>
+          <p style="font-size: 1.1rem; color: #6b7280; max-width: 600px; margin: 0 auto;">Altiora Exim is certified and registered with all necessary authorities to ensure compliance and quality in international trade.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certificates Grid -->
+    <section class="section" style="background: var(--bg); padding-top: 0.8rem; padding-bottom: 2.6rem;">
+      <div class="container">
+        <div class="certificates-images-grid animate-on-scroll" style="justify-content:center; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); max-width: 980px; margin: 0 auto;">
+          <button type="button" class="certificate-lightbox-trigger certificate-image-tile" data-certificate-src="assets/certificates/msme.jpeg" aria-label="Open MSME certificate">
+            <div class="certificate-logo-wrap">
+              <img data-asset="assets/certificates/msme.jpeg" alt="MSME Certificate" oncontextmenu="return false;" draggable="false" />
+            </div>
+          </button>
+
+
+          <button type="button" class="certificate-lightbox-trigger certificate-image-tile certificate-gst-tile" data-certificate-src="assets/certificates/newGST.png" aria-label="Open GST certificate">
+            <div class="certificate-logo-wrap">
+              <img data-asset="assets/certificates/newGST.png" alt="GST Certificate" oncontextmenu="return false;" draggable="false" />
+
+            </div>
+          </button>
+
+          <button type="button" class="certificate-lightbox-trigger certificate-image-tile" data-certificate-src="assets/certificates/IEC.jpeg" aria-label="Open IEC certificate">
+            <div class="certificate-logo-wrap">
+              <img data-asset="assets/certificates/IEC.jpeg" alt="IEC Certificate" oncontextmenu="return false;" draggable="false" />
+            </div>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="section" style="background: #f9fafb; text-align: center;">
+      <div class="container">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: #1f2937;">Why Trust Altiora Exim?</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+          <div style="padding: 1.5rem;">
+            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎯</div>
+            <h4 style="margin: 0.5rem 0; color: #1f2937;">Quality Verified</h4>
+            <p style="color: #6b7280;">Every product undergoes rigorous quality checks before export.</p>
+          </div>
+          <div style="padding: 1.5rem;">
+            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📋</div>
+            <h4 style="margin: 0.5rem 0; color: #1f2937;">Fully Documented</h4>
+            <p style="color: #6b7280;">Complete export documentation and compliance records available.</p>
+          </div>
+          <div style="padding: 1.5rem;">
+            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🌍</div>
+            <h4 style="margin: 0.5rem 0; color: #1f2937;">Global Standards</h4>
+            <p style="color: #6b7280;">Meet international buyer expectations and quality benchmarks.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section" style="background: var(--bg); text-align: center;">
+      <div class="container">
+        <h2 style="font-size: 2rem; margin-bottom: 1rem; color: #1f2937;">Ready to Order?</h2>
+        <p style="font-size: 1.1rem; color: #6b7280; margin-bottom: 2rem;">Contact us to discuss your export requirements and custom orders.</p>
+        <a href="index.html#contact" class="button primary">Get in Touch</a>
+      </div>
+    </section>
+  </main>
+
+  <a class="whatsapp-button" href="https://wa.me/919274249420" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <span class="whatsapp-icon">💬</span>
+    <span>WhatsApp</span>
+  </a>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Altiora Exim. All rights reserved.</p>
+      <p>Premium Handicraft Exports | Global Quality Standards</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <div id="certificateLightbox" class="certificate-lightbox" aria-hidden="true">
+    <button type="button" class="certificate-lightbox-close" aria-label="Close certificate" id="certificateLightboxClose">✕</button>
+
+    <div class="certificate-lightbox-media" role="dialog" aria-modal="true" aria-label="Certificate image">
+      <img id="certificateLightboxImage" src="" alt="Certificate" oncontextmenu="return false;" draggable="false" />
+    </div>
+  </div>
+
+  <style>
+    /* Certificate Lightbox (self-contained) */
+    .certificate-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.72);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 9998; /* Overlay */
+    }
+
+    .certificate-lightbox.is-open {
+      display: flex;
+    }
+
+    .certificate-lightbox-media {
+      position: relative;
+      z-index: 9999; /* Modal content */
+      max-width: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .certificate-lightbox-media img {
+      display: block;
+      opacity: 1;
+      visibility: visible;
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 10px;
+      user-select: none;
+      -webkit-user-drag: none;
+      pointer-events: auto;
+    }
+
+    .certificate-lightbox-close {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000; /* Close button */
+    }
+  </style>
+
+  <script>
+    (function () {
+      const DEBUG_PREFIX = '[CertificateLightbox]';
+
+      const lightbox = document.getElementById('certificateLightbox');
+      const closeBtn = document.getElementById('certificateLightboxClose');
+      const img = document.getElementById('certificateLightboxImage');
+      const mediaEl = document.querySelector('.certificate-lightbox-media');
+      const triggers = document.querySelectorAll('.certificate-lightbox-trigger');
+
+      if (!lightbox || !img || !closeBtn || !mediaEl) {
+        console.warn(DEBUG_PREFIX, 'Missing required DOM elements.');
+        return;
+      }
+
+      // Single initialization only
+      if (lightbox.dataset.bbInitialized === 'true') return;
+      lightbox.dataset.bbInitialized = 'true';
+
+      let isOpen = false;
+
+      const originalBodyOverflow = document.body.style.overflow;
+
+      function lockScroll() {
+        document.body.style.overflow = 'hidden';
+      }
+
+      function unlockScroll() {
+        document.body.style.overflow = originalBodyOverflow;
+      }
+
+      function open(src) {
+        if (!src) return;
+
+        // Update src first, then show
+        img.src = src;
+
+        isOpen = true;
+        lightbox.classList.add('is-open');
+        lightbox.setAttribute('aria-hidden', 'false');
+
+        // Ensure visible immediately
+        img.style.display = 'block';
+        img.style.opacity = '1';
+        img.style.visibility = 'visible';
+        img.style.maxWidth = '90vw';
+        img.style.maxHeight = '90vh';
+        img.style.objectFit = 'contain';
+
+        lockScroll();
+        closeBtn.focus({ preventScroll: true });
+      }
+
+      function close() {
+        if (!isOpen) return;
+
+        isOpen = false;
+        lightbox.classList.remove('is-open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        img.src = '';
+        unlockScroll();
+      }
+
+      // Open handlers (no duplicate init)
+      triggers.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          const src = btn.getAttribute('data-certificate-src');
+          open(src);
+          e.preventDefault();
+          e.stopPropagation();
+        });
+      });
+
+      // Close via X
+      closeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        close();
+      });
+
+      // Close via ESC
+      document.addEventListener('keydown', (e) => {
+        if (!isOpen) return;
+        if (e.key === 'Escape') {
+          e.preventDefault();
+          close();
+        }
+      });
+
+      // Close via outside click (on overlay, not on the image/media)
+      lightbox.addEventListener('click', (e) => {
+        if (!isOpen) return;
+        if (!mediaEl.contains(e.target)) close();
+      });
+
+      // Prevent background scroll via touchmove when open (mobile)
+      lightbox.addEventListener('touchmove', (e) => {
+        if (!isOpen) return;
+        // allow scrolling inside nothing (image is non-scrollable)
+        e.preventDefault();
+      }, { passive: false });
+
+      console.debug(DEBUG_PREFIX, 'Initialized');
+    })();
+  </script>
+
+  <style>
+    .certificates-images-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+      align-items: start;
+    }
+
+    /* Tablet */
+    @media (max-width: 1024px) {
+      .certificates-images-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 640px) {
+      .certificates-images-grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+      }
+    }
+
+    .certificate-image-tile {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      width: 260px;
+      max-width: 100%;
+      display: block;
+    }
+
+    .certificate-gst-tile {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 12px;
+      padding: 10px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+    }
+
+    .certificate-gst-tile {
+      width: 300px;
+      max-width: 100%;
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 14px;
+      padding: 12px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+      display: block;
+    }
+
+    .certificate-gst-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 6px;
+      display: block;
+    }
+
+    .certificate-image-tile img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      border: 0;
+      box-shadow: none;
+      border-radius: 0;
+      /* allow consistent hover/click behavior */
+      pointer-events: auto;
+      user-select: none;
+    }
+
+    .certificate-image-tile:focus-visible {
+      outline: 3px solid rgba(5, 150, 105, 0.35);
+      outline-offset: 4px;
+      border-radius: 8px;
+    }
+  </style>
+</body>
+</html>
+

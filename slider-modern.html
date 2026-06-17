@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modern Exporter Hero Slider</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Scoped styles to avoid breaking existing site */
+    /* NOTE: This page is standalone for Live Server */
+    .mx-hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 560px;
+      overflow: hidden;
+      background: #070b1a;
+    }
+
+    .mx-slides {
+      position: absolute;
+      inset: 0;
+    }
+
+    .mx-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 900ms ease;
+      will-change: opacity;
+    }
+
+    .mx-slide.active { opacity: 1; }
+
+    .mx-slide::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(1000px 400px at 20% 40%, rgba(56, 189, 248, 0.22) 0%, rgba(56, 189, 248, 0) 60%),
+        linear-gradient(90deg, rgba(3, 6, 23, 0.85) 0%, rgba(3, 6, 23, 0.45) 48%, rgba(3, 6, 23, 0.10) 100%),
+        linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.55) 100%);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .mx-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.02);
+      filter: saturate(1.08) contrast(1.04);
+    }
+
+    .mx-topbar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 20;
+      padding: 18px 18px;
+    }
+
+    .mx-topbar-inner {
+      margin: 0 auto;
+      width: min(1180px, calc(100% - 2rem));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .mx-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+      text-decoration: none;
+      min-width: 180px;
+    }
+
+    .mx-brand img {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      object-fit: cover;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    }
+
+    .mx-brand span {
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      font-size: 13px;
+      opacity: 0.95;
+      text-transform: uppercase;
+    }
+
+    .mx-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 26px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.14);
+      backdrop-filter: blur(18px);
+    }
+
+    .mx-nav a {
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: color 0.2s ease, transform 0.2s ease;
+      position: relative;
+    }
+
+    .mx-nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      width: 0;
+      height: 2px;
+      background: rgba(56, 189, 248, 0.95);
+      transition: width 0.25s ease;
+    }
+
+    .mx-nav a:hover {
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .mx-nav a:hover::after { width: 100%; }
+
+    .mx-right {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      min-width: 220px;
+    }
+
+    .mx-lang {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.14);
+      backdrop-filter: blur(18px);
+      color: rgba(255,255,255,0.9);
+    }
+
+    .mx-lang label {
+      font-size: 12px;
+      font-weight: 700;
+      opacity: 0.9;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .mx-lang select {
+      border: none;
+      outline: none;
+      background: transparent;
+      color: #fff;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .mx-brochure {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(56,189,248,0.55);
+      background: rgba(56,189,248,0.12);
+      color: #dbeafe;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .mx-brochure:hover {
+      transform: translateY(-2px);
+      background: rgba(56,189,248,0.18);
+      border-color: rgba(56,189,248,0.9);
+    }
+
+    .mx-content {
+      position: relative;
+      z-index: 10;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .mx-content-inner {
+      margin: 0 auto;
+      width: min(1180px, calc(100% - 2rem));
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: center;
+      padding-top: 70px;
+      padding-bottom: 36px;
+    }
+
+    .mx-left {
+      color: #fff;
+      animation: mx-fadeUp 800ms ease both;
+    }
+
+    .mx-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.16);
+      backdrop-filter: blur(18px);
+      color: rgba(255,255,255,0.92);
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 12px;
+      margin-bottom: 18px;
+    }
+
+    .mx-heading {
+      font-size: clamp(44px, 5.4vw, 72px);
+      line-height: 0.95;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin: 0;
+      text-shadow: 0 18px 40px rgba(0,0,0,0.45);
+    }
+
+    .mx-heading span {
+      display: block;
+    }
+
+    .mx-cta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 26px;
+      flex-wrap: wrap;
+    }
+
+    .mx-readmore {
+      border: 1px solid rgba(59, 130, 246, 0.65);
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.95) 0%, rgba(59, 130, 246, 0.75) 100%);
+      color: white;
+      padding: 14px 20px;
+      border-radius: 999px;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      transition: transform 0.2s ease, filter 0.2s ease;
+      box-shadow: 0 14px 34px rgba(37,99,235,0.22);
+    }
+
+    .mx-readmore:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.05);
+    }
+
+    .mx-sub {
+      color: rgba(255,255,255,0.85);
+      font-weight: 600;
+      max-width: 440px;
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .mx-right {
+      position: relative;
+      height: 100%;
+      min-height: 360px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      animation: mx-fadeUp 1000ms ease both;
+    }
+
+    .mx-product {
+      width: min(360px, 100%);
+      aspect-ratio: 4 / 5;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 26px 70px rgba(0,0,0,0.45);
+      position: relative;
+    }
+
+    .mx-product img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.02);
+      transition: transform 0.6s ease;
+    }
+
+    .mx-product::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(500px 180px at 20% 10%, rgba(56,189,248,0.25) 0%, rgba(56,189,248,0) 60%),
+        linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.45) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .mx-product:hover img { transform: scale(1.07); }
+
+    /* Arrows */
+    .mx-arrows {
+      position: absolute;
+      inset: 0;
+      z-index: 30;
+      pointer-events: none;
+    }
+
+    .mx-arrow {
+      pointer-events: auto;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      backdrop-filter: blur(18px);
+    }
+
+    .mx-arrow:hover {
+      transform: translateY(-50%) scale(1.06);
+      background: rgba(255,255,255,0.14);
+      border-color: rgba(56,189,248,0.65);
+    }
+
+    .mx-arrow.prev { left: 18px; }
+    .mx-arrow.next { right: 18px; }
+
+    .mx-arrow span {
+      font-size: 26px;
+      line-height: 1;
+      margin-top: -2px;
+    }
+
+    @keyframes mx-fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .mx-content-inner {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        padding-top: 120px;
+      }
+      .mx-right { justify-content: center; }
+      .mx-product { width: min(420px, 100%); }
+      .mx-nav { gap: 16px; padding: 10px 12px; }
+      .mx-right { min-height: 280px; }
+    }
+
+    @media (max-width: 740px) {
+      .mx-topbar { padding: 14px 10px; }
+      .mx-topbar-inner { gap: 10px; }
+      .mx-brand { min-width: 120px; }
+      .mx-nav {
+        position: absolute;
+        top: 70px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 24px);
+        overflow-x: auto;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .mx-nav::-webkit-scrollbar { display: none; }
+      .mx-right { display: none; }
+      .mx-content-inner { padding-top: 190px; }
+      .mx-arrow.prev { left: 10px; }
+      .mx-arrow.next { right: 10px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .mx-slide { transition: none; }
+      .mx-left, .mx-right { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <section class="mx-hero" aria-label="Hero exporter slider">
+    <div class="mx-slides" id="mxSlides">
+      <!-- Slide 1 -->
+      <div class="mx-slide active" data-bg="assets/slider/fabric.png" data-product="assets/slider/fabric.png">
+        <img class="mx-bg" src="assets/slider/fabric.png" alt="Fabric export" />
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="mx-slide" data-bg="assets/slider/cover.png" data-product="assets/slider/cover.png">
+        <img class="mx-bg" src="assets/slider/cover.png" alt="Cover export" />
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="mx-slide" data-bg="assets/slider/carpet.png" data-product="assets/slider/carpet.png">
+        <img class="mx-bg" src="assets/slider/carpet.png" alt="Rugs export" />
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="mx-slide" data-bg="assets/slider/pottery.png" data-product="assets/slider/pottery.png">
+        <img class="mx-bg" src="assets/slider/pottery.png" alt="Pottery export" />
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="mx-slide" data-bg="assets/slider/brass.png" data-product="assets/slider/brass.png">
+        <img class="mx-bg" src="assets/slider/brass.png" alt="Brass export" />
+      </div>
+    </div>
+
+    <header class="mx-topbar">
+      <div class="mx-topbar-inner">
+        <a class="mx-brand" href="#">
+          <img src="assets/altioraeximlogo-circle.png" alt="Company logo" />
+          <span>ALTIORA EXIM</span>
+        </a>
+
+        <nav class="mx-nav" aria-label="Primary navigation">
+          <a href="#about">About</a>
+          <a href="#products">Products</a>
+          <a href="#certificates">Certificate</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="#">Blog</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="mx-right">
+          <div class="mx-lang">
+            <label for="mxLang">Lang</label>
+            <select id="mxLang" aria-label="Language selector">
+              <option value="en" selected>EN</option>
+              <option value="hi">HI</option>
+              <option value="mr">MR</option>
+            </select>
+          </div>
+          <a class="mx-brochure" href="#">Brochure</a>
+        </div>
+      </div>
+    </header>
+
+
+    <div class="mx-content">
+      <div class="mx-content-inner">
+        <div class="mx-left">
+          <div class="mx-eyebrow">Export • Import • Wholesale</div>
+          <h1 class="mx-heading">
+            <span>PREMIUM RICE</span>
+            <span>EXPORTER</span>
+            <span>SOLUTIONS</span>
+          </h1>
+
+          <div class="mx-cta">
+            <a class="mx-readmore" href="#">Read More</a>
+            <p class="mx-sub">Modern export-ready sourcing for global buyers. Quality-controlled logistics with reliable supply.</p>
+          </div>
+        </div>
+
+        <div class="mx-right">
+          <div class="mx-product" aria-label="Product image">
+            <img id="mxProduct" src="assets/slider/brass.png" alt="Product" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mx-arrows" aria-label="Slider controls">
+      <button type="button" class="mx-arrow prev" id="mxPrev" aria-label="Previous slide">
+        <span>‹</span>
+      </button>
+      <button type="button" class="mx-arrow next" id="mxNext" aria-label="Next slide">
+        <span>›</span>
+      </button>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      const slides = Array.from(document.querySelectorAll('.mx-slide'));
+      const prevBtn = document.getElementById('mxPrev');
+      const nextBtn = document.getElementById('mxNext');
+      const productImg = document.getElementById('mxProduct');
+      let idx = 0;
+
+      function setActive(i) {
+        idx = (i + slides.length) % slides.length;
+        slides.forEach(s => s.classList.remove('active'));
+        slides[idx].classList.add('active');
+
+        const product = slides[idx].getAttribute('data-product') || slides[idx].getAttribute('data-bg');
+        if (product) productImg.src = product;
+      }
+
+      prevBtn && prevBtn.addEventListener('click', () => setActive(idx - 1));
+      nextBtn && nextBtn.addEventListener('click', () => setActive(idx + 1));
+
+      // Auto play
+      let t = setInterval(() => setActive(idx + 1), 5200);
+      const hero = document.querySelector('.mx-hero');
+      if (hero) {
+        hero.addEventListener('mouseenter', () => clearInterval(t));
+        hero.addEventListener('mouseleave', () => (t = setInterval(() => setActive(idx + 1), 5200)));
+      }
+
+      // Ensure correct initial image
+      setActive(0);
+    })();
+  </script>
+</body>
+</html>
+

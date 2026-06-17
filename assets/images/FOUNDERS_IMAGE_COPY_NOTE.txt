@@ -1,0 +1,1 @@
+This file exists to ensure assets/images path is present. The actual founder image is referenced as assets/images/founder.png.
