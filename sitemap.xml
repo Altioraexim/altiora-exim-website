@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://www.altioraexim.co.in/</loc>
-  </url>
-  <url>
-    <loc>https://www.altioraexim.co.in/about.html</loc>
-  </url>
-  <url>
-    <loc>https://www.altioraexim.co.in/products.html</loc>
-  </url>
-  <url>
-    <loc>https://www.altioraexim.co.in/contact.html</loc>
-  </url>
+
+<url>
+<loc>https://www.altioraexim.co.in/</loc>
+</url>
+
+<url>
+<loc>https://www.altioraexim.co.in/certificate.html</loc>
+</url>
+
+<url>
+<loc>https://www.altioraexim.co.in/gallery.html</loc>
+</url>
+
 </urlset>
