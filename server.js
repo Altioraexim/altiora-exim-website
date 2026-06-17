@@ -142,11 +142,17 @@ app.post('/api/contact', contactLimiter, [
 });
 
 // Explicit routes so client-side/route fallback doesn't interfere with assets/pages.
-app.get('/sitemap.xml', (req, res) => res.sendFile(path.join(__dirname, 'sitemap.xml')));
+app.get('/sitemap.xml', (req, res) => {
+  // Ensure Google Search Console receives valid XML, not an HTML fallback.
+  const sitemapPath = path.join(__dirname, 'sitemap.xml');
+  res.type('application/xml');
+  return res.sendFile(sitemapPath);
+});
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
 app.get('/index.html', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
 app.get('/gallery.html', (req, res) => res.sendFile(path.join(__dirname, 'gallery.html')));
 app.get('/certificate.html', (req, res) => res.sendFile(path.join(__dirname, 'certificate.html')));
+
 
 
 // Safer fallback for unknown routes.
