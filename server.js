@@ -142,10 +142,12 @@ app.post('/api/contact', contactLimiter, [
 });
 
 // Explicit routes so client-side/route fallback doesn't interfere with assets/pages.
+app.get('/sitemap.xml', (req, res) => res.sendFile(path.join(__dirname, 'sitemap.xml')));
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
 app.get('/index.html', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
 app.get('/gallery.html', (req, res) => res.sendFile(path.join(__dirname, 'gallery.html')));
 app.get('/certificate.html', (req, res) => res.sendFile(path.join(__dirname, 'certificate.html')));
+
 
 // Safer fallback for unknown routes.
 // Important: never return index.html for asset URLs; that can break image loading.
