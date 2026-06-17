@@ -154,7 +154,6 @@ app.get('/gallery.html', (req, res) => res.sendFile(path.join(__dirname, 'galler
 app.get('/certificate.html', (req, res) => res.sendFile(path.join(__dirname, 'certificate.html')));
 
 
-
 // Safer fallback for unknown routes.
 // Important: never return index.html for asset URLs; that can break image loading.
 app.get('*', (req, res, next) => {
