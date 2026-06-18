@@ -2207,32 +2207,22 @@ body.certificate-page #google_translate_element select option {
   }
 }
 
-
-/* MOBILE ONLY */
+/* Fix mobile product popup scrolling */
 @media (max-width: 768px) {
 
-  .slider-header {
-    position: relative;
-    background: #0f172a;
-    padding: 15px 0;
+  .bb-modal {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
-  .hero-slider {
-    height: auto;
-    min-height: auto;
+  .bb-modal-dialog {
+    max-height: 90vh;
+    overflow-y: auto;
   }
 
-  .full-page-slider {
-    height: 50vh;
+  .bb-modal-body {
+    max-height: 70vh;
+    overflow-y: auto;
   }
 
-  .header-inner {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .main-nav {
-    display: none;
-  }
 }
