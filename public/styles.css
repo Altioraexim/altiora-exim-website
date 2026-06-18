@@ -2155,3 +2155,59 @@ body.certificate-page #google_translate_element select option {
   }
 
 }
+
+
+/* MOBILE RESPONSIVE FIX */
+@media (max-width: 768px) {
+
+  .header-content,
+  .navbar,
+  .nav-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo-container,
+  .brand-logo {
+    max-width: 120px;
+    margin: 0 auto;
+  }
+
+  .main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .main-nav a {
+    font-size: 14px;
+    padding: 6px 8px;
+  }
+
+  .hero-section,
+  .full-page-slider {
+    width: 100%;
+    min-height: auto;
+    height: auto;
+  }
+
+  .container,
+  .section,
+  .products-grid,
+  .gallery-grid {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+}
