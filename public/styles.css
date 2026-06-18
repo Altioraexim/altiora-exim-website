@@ -2157,57 +2157,52 @@ body.certificate-page #google_translate_element select option {
 }
 
 
-/* MOBILE RESPONSIVE FIX */
+
+
+/* MOBILE HEADER FIX */
 @media (max-width: 768px) {
 
-  .header-content,
-  .navbar,
-  .nav-container {
+  .header-inner {
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    text-align: center;
+    gap: 15px;
   }
 
-  .logo-container,
-  .brand-logo {
-    max-width: 120px;
-    margin: 0 auto;
+  .brand {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .brand-name {
+    font-size: 1.3rem;
   }
 
   .main-nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
     width: 100%;
+    justify-content: center;
+    gap: 12px;
   }
 
   .main-nav a {
     font-size: 14px;
-    padding: 6px 8px;
+    padding: 4px 6px;
   }
 
-  .hero-section,
-  .full-page-slider {
+  .translate-wrapper {
     width: 100%;
-    min-height: auto;
-    height: auto;
-  }
-
-  .container,
-  .section,
-  .products-grid,
-  .gallery-grid {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  * {
-    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
   }
 
   html,
   body {
     overflow-x: hidden;
-    width: 100%;
   }
 }
