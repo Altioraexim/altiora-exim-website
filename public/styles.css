@@ -2206,3 +2206,33 @@ body.certificate-page #google_translate_element select option {
     overflow-x: hidden;
   }
 }
+
+
+/* MOBILE ONLY */
+@media (max-width: 768px) {
+
+  .slider-header {
+    position: relative;
+    background: #0f172a;
+    padding: 15px 0;
+  }
+
+  .hero-slider {
+    height: auto;
+    min-height: auto;
+  }
+
+  .full-page-slider {
+    height: 50vh;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .main-nav {
+    display: none;
+  }
+}
