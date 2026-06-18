@@ -2041,3 +2041,19 @@ body.certificate-page #google_translate_element select option {
     justify-content: center;
   }
 }
+/* Hide hamburger on desktop */
+#mobileMenuBtn {
+  display: none;
+}
+
+/* Show hamburger only on mobile */
+@media (max-width: 768px) {
+  #mobileMenuBtn {
+    display: block;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+  }
+}
