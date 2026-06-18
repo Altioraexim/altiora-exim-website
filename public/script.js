@@ -658,3 +658,11 @@ document.addEventListener('DOMContentLoaded', () => {
   bindGlobalClose();
 });
 
+const mobileBtn = document.getElementById("mobileMenuBtn");
+const mobileMenu = document.querySelector(".main-nav");
+
+if (mobileBtn && mobileMenu) {
+  mobileBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("active");
+  });
+}
