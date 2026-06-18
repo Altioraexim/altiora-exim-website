@@ -511,7 +511,7 @@ button, input, textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+
 }
 
 .slide.active {
@@ -2305,4 +2305,25 @@ body.certificate-page #google_translate_element select option {
   .full-page-slider {
     height: 50vh;
   }
+}
+
+@media (max-width:768px){
+
+  .main-nav.active{
+    display:flex;
+    flex-direction:column;
+    position:absolute;
+    top:80px;
+    left:0;
+    width:100%;
+    background:#0f172a;
+    padding:15px 20px;
+    z-index:999;
+  }
+
+  .main-nav.active a{
+    padding:12px 0;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+  }
+
 }
