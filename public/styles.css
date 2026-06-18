@@ -2264,3 +2264,45 @@ body.certificate-page #google_translate_element select option {
     text-align: left;
   }
 }
+
+@media (max-width: 768px) {
+
+  .slider-header {
+    position: relative;
+    background: #0f172a;
+    padding: 10px 15px;
+  }
+
+  .header-inner {
+    display: flex;
+    flex-direction: row !important;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 70px !important;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .brand-name {
+    font-size: 1rem;
+  }
+
+  .mobile-menu-btn {
+    position: static !important;
+    margin-left: auto;
+    font-size: 30px;
+  }
+
+  .full-page-slider {
+    height: 50vh;
+  }
+}
