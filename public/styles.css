@@ -483,7 +483,29 @@ button, input, textarea {
   margin: 0;
 }
 
+@media (max-width: 768px) {
 
+  .main-nav {
+    display: none;
+  }
+
+  .main-nav.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: #0f172a;
+    z-index: 9999;
+    padding: 15px;
+  }
+
+  .main-nav.active a {
+    text-align: center;
+    padding: 12px 0;
+  }
+}
 
 
 

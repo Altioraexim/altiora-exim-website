@@ -666,3 +666,12 @@ if (mobileBtn && mobileMenu) {
     mobileMenu.classList.toggle("active");
   });
 }
+
+const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+const mainNav = document.querySelector(".main-nav");
+
+if (mobileMenuBtn && mainNav) {
+  mobileMenuBtn.addEventListener("click", () => {
+    mainNav.classList.toggle("active");
+  });
+}
